@@ -16,29 +16,29 @@ const consumersecret = "consumersecret";
 const accesstokenkey = "accesstokenkey";
 const accesstokensecret = "accesstokensecret";
 
-async function main(){
-  // Get the secret we created
-const consumerkeyname = await client.getSecret(secretName);
-const consumersecretname = await client.getSecret(secretName);
-const accesstokenkeyname = await client.getSecret(secretName);
-const accesstokensecretname = await client.getSecret(secretName);
-
-console.log(`Your consumerkey value is: ${consumerkeyname.value}`);
-console.log(`Your consumersecret value is: ${consumersecretname.value}`);
-console.log(`Your accesstokenkey value is: ${accesstokenkeyname.value}`);
-console.log(`Your accesstokensecret value is: ${accesstokensecretname.value}`);
-}
-
-main().catch((err) => {
-  response.write(`error code: ${err.code}`);
-  response.write(`error message: ${err.message}`);
-  response.write(`error stack: ${err.stack}`);
-  response.end();
-});
-
 router.get('/', function(req, res, next) {
   var Twitter = require('twitter');
   console.log("Starting up")
+
+  async function main(){
+    // Get the secret we created
+  const consumerkeyname = await client.getSecret(secretName);
+  const consumersecretname = await client.getSecret(secretName);
+  const accesstokenkeyname = await client.getSecret(secretName);
+  const accesstokensecretname = await client.getSecret(secretName);
+  
+  console.log(`Your consumerkey value is: ${consumerkeyname.value}`);
+  console.log(`Your consumersecret value is: ${consumersecretname.value}`);
+  console.log(`Your accesstokenkey value is: ${accesstokenkeyname.value}`);
+  console.log(`Your accesstokensecret value is: ${accesstokensecretname.value}`);
+  }
+  
+  main().catch((err) => {
+    response.write(`error code: ${err.code}`);
+    response.write(`error message: ${err.message}`);
+    response.write(`error stack: ${err.stack}`);
+    response.end();
+  });
    
   var client = new Twitter({
     consumer_key: consumerkeyname.value,
