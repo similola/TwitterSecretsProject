@@ -41,10 +41,10 @@ router.get('/', function(req, res, next) {
   });
    
   var client = new Twitter({
-    consumer_key: consumerkeyname.value,
-    consumer_secret: consumersecretname.value,
-    access_token_key: accesstokenkeyname.value,
-    access_token_secret: accesstokensecretname.value
+    consumer_key: `${consumerkeyname.value}`,
+    consumer_secret: `${consumersecretname.value}`,
+    access_token_key: `${accesstokenkeyname.value}`,
+    access_token_secret: `${accesstokensecretname.value}`
 
   });
    
